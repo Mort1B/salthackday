@@ -33,10 +33,10 @@ const App = () => {
   return (
     <div>
       <Header />
-      <Row>
+      <Row className="justify-content-md-center">
         <LineChart width={1000} height={550} data={data}>
             <XAxis dataKey="name"/>
-            <YAxis domain={[15400, 15400]}/>
+            <YAxis domain={[15400, 15400]} />
             <CartesianGrid stroke="#eee" strokeDasharray="5 5"/>
             <Line type="monotone" dataKey="value" stroke="#8884d8" />
             <Tooltip />

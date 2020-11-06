@@ -4,6 +4,7 @@ import axios from "axios";
 
 function CurrList() {
   const [list, setList] = useState([]);
+  const [url, setUrl] = useState('');
 
   useEffect(() => {
     loadData();
@@ -19,7 +20,6 @@ function CurrList() {
         for (const rate in res.data.rates) {
           arr.push(`${rate}: ${res.data.rates[rate]}`);
         }
-        console.log(arr);
         setList([...list, arr]);
       }
     } catch (error) {
@@ -27,14 +27,24 @@ function CurrList() {
     }
   };
 
+  // const clickHander = (e) => {
+  //   e.preventDefault()
+  //   console.log(e.currentTarget.textContent)
+  //   let q = e.currentTarget.textContent;
+  //   let d = q.slice(0,5);
+  //   console.log(d);
+  //   let url = `https://www.google.com/search?q=${d}&btnI`;
+  //   setUrl(url);
+  // }
+
   return (
     <>
         <Col>
-          <ListGroup style={{border: '1px solid black', padding: '1em', height: '50vh', overflowY: 'auto'}}>
+          <ListGroup style={{ border: '1px solid black', padding: '1em', height: '25vh', overflowY: 'auto'}}>
             {list.length > 0 && list[0].map((rate) => {
               return (
-              <ListGroupItem key={Math.random()} action >
-                  <span>{rate}</span>
+              <ListGroupItem key={Math.random()} action style={{ textAlign: 'center', fontSize: '15px'}}>
+                  <a href="https://www.google.com/search?q=miota&btnI" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit'}}>{rate.slice(0,5)} ${rate.slice(5)}</a>
               </ListGroupItem>
               )
             })}
