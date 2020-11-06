@@ -12,7 +12,7 @@ function CurrList() {
   const loadData = async () => {
     try {
       const res = await axios(
-        "http://api.coinlayer.com/api/live?access_key=0d912d59dfdc1fdefd06238fca66843b"
+        `http://api.coinlayer.com/api/live?access_key=0d912d59dfdc1fdefd06238fca66843b`
       );
       if (res) {
         let arr = [];
